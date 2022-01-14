@@ -8,21 +8,21 @@ const UserList = () => {
     useEffect(() => {
         //set error
         getUsers()
-          .then((newUsers) => {
-            console.log(newUsers);
-            setUsers(newUsers);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }, [setUsers]);
+            .then((newUsers) => {
+                console.log(newUsers);
+                setUsers(newUsers);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [setUsers]);
 
 
     return (
         <div>
-        {users.map((user) => (
-        <UserCard key={user.username} user={user} />
-      ))}
+            {users.map((user) => (
+                <UserCard key={user.username} user={user} />
+            ))}
         </div>
     );
 };

@@ -13,17 +13,17 @@ export const getUsers = async () => {
     return data.users;
 };
 //get    /users/:username
-export const getUserByUsername = async (username = "tickle122") => {
+export const getUserByUsername = async (username) => {
     const { data } = await api.get(`/users/${username}`)
     console.log(data);
-    return data;
+    return data.user[0];
 };
 //patch  /users/:username
 
 //post   /users
 export const postUser = async (user) => {
     const { data } = await api.post(`/users`, user)
-    return data.user;
+    return data;
 
 };
 
