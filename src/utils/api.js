@@ -88,6 +88,7 @@ export const postCategory = async (category) => {
 export const getComments = async (review_id) => {
     const { data } = await api
     .get(`/reviews/${review_id}/comments`)
+    console.log(data.comments);
     return data.comments;
 };           
 // export const getComments = async (review_id, page, limit) => {

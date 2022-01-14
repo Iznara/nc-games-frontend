@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CommentList from '../components/CommentList';
 import ReviewCard from '../components/ReviewCard';
 import { getReviewById } from '../utils/api';
 
@@ -24,7 +25,7 @@ const Review = () => {
     return (
         <div>
             <ReviewCard  key={review.review_id} review={review} />
-
+            <CommentList review_id={review_id} />
         </div>
     );
 };

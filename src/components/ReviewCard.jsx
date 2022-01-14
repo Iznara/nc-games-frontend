@@ -1,4 +1,5 @@
 import React from 'react';
+import * as dayjs from "dayjs";
 import {Link} from 'react-router-dom'
 import { ImageContainer, CardContainer } from '../styles/styles.components';
 
@@ -13,7 +14,7 @@ const ReviewCard = ({review}) => {
                 <ImageContainer 
                 src={review.review_img_url} 
                 alt={review.title} />
-                <p>Date Posted: {review.created_at}</p>
+                <p>Date Posted: {dayjs(review.created_at).format("MMM D, YYYY h:mm A")}</p>
                 <p>Designer: {review.designer}</p>
                 <p>Posted By: {review.owner}</p>
                 <p>{review.review_body}</p>
