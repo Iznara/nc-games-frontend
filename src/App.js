@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
 import Home from './pages/Home';
+import UserList from './pages/UserList';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <main className="App-main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
+          {/* <Route path="/reviews" element={<ReviewsList />} /> */}
         </Routes>
       </main>
       <footer>footer</footer>
