@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CardContainer } from '../styles/styles.components';
 
-const UserCard = ({ user: { username, avatar_url, name },
-}) => {
+const UserCard = ({ user }) => {
+    console.log(user);
     return (
-        <div>
-            {/* <img src={avatar_url} alt={`${username}'s Profile`} />
-            <h1>{name}</h1> */}
-            
+        <CardContainer>
+            {/* <img src={user.avatar_url} alt={`${user.username}'s Profile`} />
+            <h1>{user.name}</h1> */}
         
-            <h3>Username: <Link to={`/users/${username}`}> {username} </Link></h3>
-        </div>
+            <h3>Username: <Link to={`/users/${user.username}`}> {user.username} </Link></h3>
+        </CardContainer>
     );
 };
 export default UserCard;

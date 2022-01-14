@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ProfileCard from '../components/ProfileCard';
 import { getUserByUsername } from '../utils/api';
 
 const Profile = () => {
+  const { username } = useParams();
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -12,7 +14,7 @@ const Profile = () => {
         //     console.log(newUser.username);
         //     setUser(newUser.username);
         // })
-        getUserByUsername("tickle122")
+        getUserByUsername(username)
           .then((newUser) => {
             console.log(newUser.username);
             setUser(newUser);
@@ -20,7 +22,7 @@ const Profile = () => {
           .catch((err) => {
             console.log(err);
           });
-      }, [setUser]);
+      }, [setUser, username]);
 
     return (
         <div>
