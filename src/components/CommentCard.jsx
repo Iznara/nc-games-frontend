@@ -1,29 +1,18 @@
 import React from 'react';
 import * as dayjs from "dayjs";
+import VoteCommentButton from './VoteCommentButton';
 
-const CommentCard = ({
-    comment: { author, body, comment_id, created_at, votes }
-}) => {
+const CommentCard = ({comment}) => {
     return (
-
         <div>
-            {/* <p>{dayjs(created_at).format("ddd D MMM YYYY HH:mm")}</p> */}
-            <p>User:{author}</p>
-            <p>Posted: {dayjs(created_at).format("MMM D, YYYY h:mm A")}</p>
-            <p>Comment:{body}</p>
-            <p>Votes:{votes}</p>
-
-            <button>Vote +1</button>
-            {/* <VoteControls item_id={comment_id} votes={votes} voteType={"comment"} /> */}
-
-            <button>Delete</button>
-            {/* <DeleteComment
-            comment_id={comment_id}
-            author={author}
-            setComments={setComments}
-          /> */}
+            <p>User:{comment.author}</p>
+            <p>Posted: {dayjs(comment.created_at).format("MMM D, YYYY h:mm A")}</p>
+            <p>Comment:{comment.body}</p>
+            <p>Votes:{comment.votes}</p>
+            <VoteCommentButton 
+            comment={comment}
+			incComments={comment.incComments} />
         </div>
-
     );
 };
 

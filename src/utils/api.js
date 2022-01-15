@@ -89,20 +89,7 @@ export const getComments = async (review_id) => {
     //console.log(data.comments);
     return data.comments;
 };
-// export const getComments = async (review_id, page, limit) => {
-//     let path = `/reviews/${review_id}/comments`;
-//     let pathQry = `?`;
-//     if (page !== 0) {
-//         path += `${pathQry}p=${page}`;
-//         pathQry = `&`;
-//     }
-//     if (limit !== 10) {
-//         path += `${pathQry}limit=${limit}`;
-//         pathQry = `&`;
-//     }
-//     const { data } = await api.get(path)
-//     return data.comments;
-// };
+
 //post   /reviews/:review_id/comments     
 export const postComment = async (review_id, comment) => {
     const { data } = await api
@@ -111,9 +98,10 @@ export const postComment = async (review_id, comment) => {
 };
 
 //patch  /comments/:comment_id
-export const commentVotes = async (review_id, inc_votes) => {
+export const voteComment = async (comment_id, inc_votes) => {
     const { data } = await api
-        .patch(`/reviews/${review_id}`, { inc_votes })
+        .patch(`/comments/${comment_id}`, { inc_votes })
+        //console.log(data);
     return data.comment;
 };
 

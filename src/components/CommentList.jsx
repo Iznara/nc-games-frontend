@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getComments } from '../utils/api';
 import CommentCard from './CommentCard';
 
-const CommentList = ({ review_id }) => {
+const CommentList = ({ review_id, incComments }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -21,6 +21,7 @@ const CommentList = ({ review_id }) => {
             key={comment.comment_id}
             comment={comment}
             setComments={setComments}
+            incComments={incComments}
           />
         ))}
         </div>
