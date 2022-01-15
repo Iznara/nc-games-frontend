@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getComments } from '../utils/api';
 import CommentCard from './CommentCard';
+import PostComment from './PostComment';
 
-const CommentList = ({ review_id, incComments }) => {
+const CommentList = ({ review_id }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -16,14 +17,20 @@ const CommentList = ({ review_id, incComments }) => {
     }, [setComments, review_id]);
     return (
         <div>
-        {comments.map((comment) => (
-          <CommentCard
-            key={comment.comment_id}
-            comment={comment}
-            setComments={setComments}
-            incComments={incComments}
-          />
-        ))}
+            <PostComment
+
+                review_id={review_id}
+                setComments={setComments} />
+
+            {comments.map((comment, i) => (
+                
+                    <CommentCard
+                        key={`${comment.comment_id}, ${i}`}
+                        comment={comment}
+                        setComments={setComments}
+                    />
+                
+            ))}
         </div>
     );
 };

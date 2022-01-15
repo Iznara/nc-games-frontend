@@ -86,14 +86,14 @@ export const postCategory = async (category) => {
 export const getComments = async (review_id) => {
     const { data } = await api
         .get(`/reviews/${review_id}/comments`)
-    //console.log(data.comments);
+    console.log(data.comments);
     return data.comments;
 };
 
 //post   /reviews/:review_id/comments     
-export const postComment = async (review_id, comment) => {
+export const postComment = async (review_id, username, body) => {
     const { data } = await api
-        .post(`/reviews/${review_id}/comments`, comment)
+        .post(`/reviews/${review_id}/comments`, { username, body })
     return data;
 };
 
@@ -101,7 +101,7 @@ export const postComment = async (review_id, comment) => {
 export const voteComment = async (comment_id, inc_votes) => {
     const { data } = await api
         .patch(`/comments/${comment_id}`, { inc_votes })
-        //console.log(data);
+    //console.log(data);
     return data.comment;
 };
 
