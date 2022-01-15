@@ -1,29 +1,44 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
+import Sortbar from '../components/SortBar';
 import { getReviews } from '../utils/api';
 
 const REVIEW_LIMIT = 10;
 
 const ReviewsList = () => {
-    const [reviewss, setReviewss] = useState([]);
+    const { category_name } = useParams();
+    const [reviews, setReviews] = useState([]);
     const [totalCount, setTotalCount] = useState(0);
     const [page, setPage] = useState(1);
+    const [sort_by, setSort_by] = useState("created_at");
+    const [order_by, setOrder_by] = useState("ASC");
 
     useEffect(() => {
 
-            getReviews({page})
+        getReviews({
+            page,
+            category: category_name,
+            sort_by: sort_by,
+            order: order_by,
+        })
             .then(({ reviews }) => {
-                //console.log(reviews);
-                setReviewss(reviews);
+                console.log(reviews);
+                setReviews(reviews);
                 setTotalCount(reviews[0].total_count);
             })
             .catch(console.log);
-        
-    }, [page]);
+
+    }, [category_name, sort_by, order_by, page]);
 
     return (
         <div>
-            {/* <p>Category: {categoriess.slug}</p> */}
+            <Sortbar
+                order={order_by}
+                setOrder={setOrder_by}
+                sort_by={sort_by}
+                setSort_by={setSort_by} />
+            <h1> {category_name ? `${category_name.charAt(0).toUpperCase() + category_name.slice(1)} Reviews` : "All Reviews"}</h1>
 
             <button
                 disabled={page === 1}
@@ -38,12 +53,12 @@ const ReviewsList = () => {
                     setPage((currPage) => currPage + 1)
                 }}  >NEXT</button>
 
-            
-                <ul>
-                    {reviewss.map((review)=> (
-                        <ReviewCard  key={review.review_id} review={review} />
-                    ))}
-                </ul> 
+
+            <ul>
+                {reviews.map((review) => (
+                    <ReviewCard key={review.review_id} review={review} />
+                ))}
+            </ul>
         </div>
     );
 };

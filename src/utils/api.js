@@ -31,11 +31,9 @@ export const postUser = async (user) => {
 //---------------------reviews---------------------
 //-------------------------------------------------
 //get    /reviews
-export const getReviews = async ({ order = 'ASC', page = 1 }) => {
-    const { data } = await api.get(`/reviews`, {
-        params: { order, sort_by: "title", page: page },
-    });
-    //console.log(data);
+export const getReviews = async (params) => {
+    const { data } = await api.get(`/reviews`, { params });
+    console.log(data);
     return data;
 };
 
@@ -71,7 +69,7 @@ export const deleteReview = async (review_id) => {
 //get    /categories                   
 export const getCategories = async () => {
     const { data } = await api.get(`/categories`)
-    //console.log(data);
+    console.log(data);
     return data.categories;
 };
 //post   /categories
@@ -87,10 +85,10 @@ export const postCategory = async (category) => {
 //get    /reviews/:review_id/comments
 export const getComments = async (review_id) => {
     const { data } = await api
-    .get(`/reviews/${review_id}/comments`)
-    console.log(data.comments);
+        .get(`/reviews/${review_id}/comments`)
+    //console.log(data.comments);
     return data.comments;
-};           
+};
 // export const getComments = async (review_id, page, limit) => {
 //     let path = `/reviews/${review_id}/comments`;
 //     let pathQry = `?`;
@@ -108,20 +106,20 @@ export const getComments = async (review_id) => {
 //post   /reviews/:review_id/comments     
 export const postComment = async (review_id, comment) => {
     const { data } = await api
-    .post(`/reviews/${review_id}/comments`, comment)
+        .post(`/reviews/${review_id}/comments`, comment)
     return data;
 };
 
 //patch  /comments/:comment_id
 export const commentVotes = async (review_id, inc_votes) => {
     const { data } = await api
-    .patch(`/reviews/${review_id}`, { inc_votes })
+        .patch(`/reviews/${review_id}`, { inc_votes })
     return data.comment;
 };
 
 //delete /comments/:comment_id               
 export const deleteComment = async (comment_id) => {
     const { data } = await api
-    .delete(`/comments/${comment_id}`)
+        .delete(`/comments/${comment_id}`)
     return data.status;
 };

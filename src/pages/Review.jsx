@@ -16,7 +16,9 @@ const Review = () => {
                 console.log("Review.jsx",review);
                 // setTotalCount(reviews[0].total_count);
             })
-            .catch(console.log)
+            .catch((err) => {
+                console.log(err);
+              })
     }, [review_id]);
 
 
