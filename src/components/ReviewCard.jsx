@@ -2,6 +2,8 @@ import React from 'react';
 import * as dayjs from "dayjs";
 import {Link} from 'react-router-dom'
 import { ImageContainer, CardContainer } from '../styles/styles.components';
+import VoteReviewButton from './VoteReviewButton';
+
 
 const ReviewCard = ({review}) => {
 
@@ -9,6 +11,7 @@ const ReviewCard = ({review}) => {
         <CardContainer>
 
             <div>
+            
             <Link to={`/reviews/${review.review_id}`}> {review.title} </Link>
                 <p>{review.category}</p>
                 <ImageContainer 
@@ -18,11 +21,8 @@ const ReviewCard = ({review}) => {
                 <p>Designer: {review.designer}</p>
                 <p>Posted By: {review.owner}</p>
                 <p>{review.review_body}</p>
-                <p>Comments: {review.comment_count}</p>
-                {review.votes === null ? 
-                <p>Votes: 0</p> :
-                <p>Votes: {review.votes}</p>}
-                
+                <p>Comments: {review.comment_count}</p>               
+                <VoteReviewButton review={review} />
             </div>
         </CardContainer>
     );

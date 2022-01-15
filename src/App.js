@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
+import { UserContext } from './contexts/user';
 import CategoriesList from './pages/CategoriesList';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -10,10 +12,13 @@ import ReviewsList from './pages/ReviewsList';
 import UserList from './pages/UserList';
 
 function App() {
+  const [user, setUser] = useState({ username: "jessjelly" });
   return (
     <div className="App">
-      <header className="App-header">NC Games Reviews
-        <Nav /></header>
+      <UserContext.Provider value={{ user }}>
+
+      <header className="App-header"  >NC Games Reviews
+        <Nav setUser={setUser} /></header>
       <main className="App-main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,6 +44,7 @@ function App() {
         </Routes>
       </main>
       <footer>footer</footer>
+      </UserContext.Provider>
     </div>
   );
 }

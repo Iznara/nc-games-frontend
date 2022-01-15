@@ -13,8 +13,6 @@ const Review = () => {
         getReviewById(review_id)
             .then(({ review }) => {
                 setReview(review);
-                console.log("Review.jsx",review);
-                // setTotalCount(reviews[0].total_count);
             })
             .catch((err) => {
                 console.log(err);

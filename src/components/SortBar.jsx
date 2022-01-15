@@ -17,14 +17,14 @@ const Sortbar = ({ order, setOrder, sort_by, setSort_by }) => {
         <div>
             <label id="sorting_lable" >Sort By</label>
             <select
-                labelId="sorting_lable"
+                labelid="sorting_lable"
                 id="sorting_select"
                 value={sort_by}
                 label="Sort By"
                 onChange={handleSelect}>
-                <option value="comment_count">Comments</option>
                 <option value="created_at">Date Posted</option>
                 <option value="votes">Popularity</option>
+                <option value="comment_count">Comments</option>
             </select>
 
             <button onClick={handleOrder}>{order === "ASC" ? " Ascending" : " Descending"}</button>

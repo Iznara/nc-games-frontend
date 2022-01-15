@@ -51,9 +51,9 @@ export const postReview = async (review) => {
 };
 
 //patch  /reviews/:review_id
-export const reviewVotes = async (review_id, inc_votes) => {
+export const voteReview = async (review_id, inc_votes) => {
     const { data } = await api.patch(`/reviews/${review_id}`, { inc_votes })
-    return data.reviews[0].votes;
+    return data.review;
 };
 
 //delete /reviews/:review_id
