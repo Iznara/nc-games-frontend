@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import logoLight from "../GitHub-Mark-Light-32px.png"
+import logoDark from "../GitHub-Mark-32px.png"
 import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/user';
 import { CardContainer, CustomBlueButton, CustomGreenButton, CustomRedButton, ImageContainer } from '../styles/styles.components';
@@ -43,6 +45,7 @@ const Home = ({ setUser }) => {
     };
 
     return (
+<div>
         <CardContainer>
             <br />
             <h2>Welcome back! {user.username}</h2>
@@ -82,6 +85,17 @@ const Home = ({ setUser }) => {
             ) : null}
 
         </CardContainer>
+
+        <CardContainer>
+            <h3>View this project on GitHub</h3>
+            <br/>
+            <p>Front-End Source Code</p>
+            <a href="https://github.com/Iznara/nc-games-frontend"><img src={logoLight} alt="GitHub Logo" /></a>  
+            <p>Back-End Source Code</p>
+            <a href="https://github.com/Iznara/be-nc-games-heroku"><img src={logoDark} alt="GitHub Logo" /></a>
+        </CardContainer>
+
+        </div>
     );
 };
 
