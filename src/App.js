@@ -18,10 +18,10 @@ function App() {
       <UserContext.Provider value={{ user }}>
 
       <header className="App-header"  >NC Games Reviews
-        <Nav setUser={setUser} /></header>
+        <Nav  /></header>
       <main className="App-main">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setUser={setUser} />} />
 
           <Route path="/reviews">
             <Route path="" element={<ReviewsList />} />
