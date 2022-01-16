@@ -17,6 +17,7 @@ const Home = ({ setUser }) => {
             setIsLoggedIn(false);
         } else if (user) {
             setUser(false);
+            setNewUser("");
         } else {
             setIsLoggedIn(true);
         }
@@ -40,60 +41,58 @@ const Home = ({ setUser }) => {
                 setLoginFailed(true);
                 console.log(err);
             });
-
-        setNewUser("");
+            setNewUser("");
     };
 
     return (
-<div>
-        <CardContainer>
-            <br />
-            <h2>Welcome back! {user.username}</h2>
-            {user ? (<>
-                <ImageContainer src={user.avatar_url} alt={`${user.username}'s Profile Picture`} />
+        <div>
+            <CardContainer>
                 <br />
-                <br />
-                <CustomRedButton onClick={handleLogIn}>Log Out</CustomRedButton>
-            </>) : (<>
-                {isLoggedIn ? (<>
-                </>) : (
-                    <CustomGreenButton onClick={handleLogIn}> Sign In </CustomGreenButton>
+                <h2>Welcome back! {user.username}</h2>
+                {user ? (<>
+                    {/* <ImageContainer src={user.avatar_url} alt={`${user.username}'s Profile Picture`} /> */}
+                    <br />
+                    <br />
+                    <CustomRedButton onClick={handleLogIn}>Log Out</CustomRedButton>
+                </>) : (<>
+                    {isLoggedIn ? (<>
+                        <div>
+                            <form onSubmit={handleSubmit}>
+                                <label>
+                                    <br />
+                                    {loginFailed ? "Try Again " : ""}
+                                    <br />
+                                    <br />
+                                    <input type="text" placeholder="username e.g. 'jessjelly'"
+                                        onChange={handleChange} value={newUser}></input>
+                                </label>
+                                <br />
+                                <br />
+                                <CustomBlueButton onClick={handleSubmit}> Submit </CustomBlueButton>
+                            </form>
+                        </div>
+                    </>) : (
+                        <CustomGreenButton onClick={handleLogIn}> Sign In </CustomGreenButton>
+                    )}
+                    <br />
+                    <br />
+                    <Link to={`/reviews`}>Continue without signing in</Link>
+                    <br />
+                </>
                 )}
-                <br />
-                <br />
-                <Link to={`/reviews`}>Continue without signing in</Link>
-                <br />
-            </>
-            )}
 
-            {isLoggedIn ? (
-                <div>
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            <br />
-                            {loginFailed ? "Try Again " : ""}
-                            <br />
-                            <br />
-                            <input type="text" placeholder="username e.g. 'jessjelly'"
-                                onChange={handleChange} value={newUser}></input>
-                        </label>
-                        <br />
-                        <br />
-                        <CustomBlueButton onClick={handleSubmit}> Submit </CustomBlueButton>
-                    </form>
-                </div>
-            ) : null}
 
-        </CardContainer>
 
-        <CardContainer>
-            <h3>View this project on GitHub</h3>
-            <br/>
-            <p>Front-End Source Code</p>
-            <a href="https://github.com/Iznara/nc-games-frontend"><img src={logoLight} alt="GitHub Logo" /></a>  
-            <p>Back-End Source Code</p>
-            <a href="https://github.com/Iznara/be-nc-games-heroku"><img src={logoDark} alt="GitHub Logo" /></a>
-        </CardContainer>
+            </CardContainer>
+
+            <CardContainer>
+                <h3>View this project on GitHub</h3>
+                <br />
+                <p>Front-End Source Code</p>
+                <a href="https://github.com/Iznara/nc-games-frontend"><img src={logoLight} alt="GitHub Logo" /></a>
+                <p>Back-End Source Code</p>
+                <a href="https://github.com/Iznara/be-nc-games-heroku"><img src={logoDark} alt="GitHub Logo" /></a>
+            </CardContainer>
 
         </div>
     );

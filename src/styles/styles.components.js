@@ -15,7 +15,6 @@ export const NavBarStyles = styled.nav`
   position: fixed;
   bottom: 0;
   font-size: calc(5px + 2vmin);
-  font-weight: bold;
   color: white;
 `;
 
@@ -158,7 +157,7 @@ export const CustomNavButton = styled.button`
   margin: 5px;
   text-align: center;
   border: 0;
-  font-size: calc(3px + 2vmin);
+  font-size: calc(2px + 2vmin);
 
   :disabled{
  background-color : #ccc;

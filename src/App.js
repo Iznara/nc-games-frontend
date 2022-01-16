@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{ user }}>
 
-        <header className="App-header"  >NC Reviews
+        <header className="App-header"  >NC Games Reviews
           <Nav /></header>
         <main className="App-main">
           <Routes>
