@@ -16,7 +16,7 @@ const Sortbar = ({ order, setOrder, sort_by, setSort_by }) => {
 
     return (
         <div>
-            <label id="sorting_lable" >Sort By: </label>
+            <label id="sorting_lable" ></label>
             <CustomSelect
                 labelid="sorting_lable"
                 id="sorting_select"

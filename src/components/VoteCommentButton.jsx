@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/user";
 import { CustomGreenButton, CustomRedButton } from "../styles/styles.components";
 import { deleteComment, voteComment } from "../utils/api";
@@ -17,7 +18,7 @@ const VoteCommentButton = ({ comment }) => {
 		setCommentVotes(commentVotes + vote);
 
 		voteComment(comment.comment_id, vote)
-			.then(() => {    
+			.then(() => {
 				setIsLoading(false);
 				setHasVoted(!hasVoted);
 			})
@@ -36,16 +37,23 @@ const VoteCommentButton = ({ comment }) => {
 
 	return (
 		<div>
-			<p>Likes: {commentVotes}</p>
-			{allowDelete ? (
-				<CustomRedButton onClick={() => {handleDelete(comment.comment_id)}}
-				>Delete Comment</CustomRedButton>
-			) : (
-				<CustomGreenButton	onClick={handleVote} 
-                disabled={isLoading || hasVoted}
-                >Like</CustomGreenButton>
+			{(user.username === undefined) ? <>
+				<p>Please sign in to like a comment</p>
+				<br />
+				<Link to={`/`}>Sign In</Link>
+			</> : <>
 
-			)}
+				<p>Likes: {commentVotes}</p>
+				{allowDelete ? (
+					<CustomRedButton onClick={() => { handleDelete(comment.comment_id) }}
+					>Delete Comment</CustomRedButton>
+				) : (
+					<CustomGreenButton onClick={handleVote}
+						disabled={isLoading || hasVoted}
+					>Like</CustomGreenButton>
+
+				)}
+			</>}
 		</div>
 	);
 };

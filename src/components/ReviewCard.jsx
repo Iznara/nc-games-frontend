@@ -1,7 +1,7 @@
 import React from 'react';
 import * as dayjs from "dayjs";
 import { Link } from 'react-router-dom'
-import { ImageContainer, CardContainer, DataContainer } from '../styles/styles.components';
+import { ImageContainer, CardContainer } from '../styles/styles.components';
 import VoteReviewButton from './VoteReviewButton';
 
 

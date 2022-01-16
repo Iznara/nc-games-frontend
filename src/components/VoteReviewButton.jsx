@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/user";
 import { CustomGreenButton, CustomRedButton } from "../styles/styles.components";
 import { deleteReview, voteReview } from "../utils/api";
@@ -38,6 +38,10 @@ const VoteReviewButton = ({ review }) => {
 
 	return (
 		<div>
+			{(user.username === undefined) ? <>
+				<p>Please sign in to like a review</p>
+				<Link to={`/`}>Sign In</Link>
+			</> : <>
 			<p>Likes: {reviewVotes}</p>
 			{allowDelete ? (
 				<CustomRedButton onClick={() => {handleDelete(review.review_id)}}
@@ -48,6 +52,7 @@ const VoteReviewButton = ({ review }) => {
                 >Like This Review</CustomGreenButton>
 
 			)}
+			</>}
 		</div>
 	);
 };

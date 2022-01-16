@@ -31,9 +31,9 @@ const PostComment = ({ review_id, setComments }) => {
 	return (
 		<>
 			{(user.username === undefined) ? <>
-				<p>Please Login to post a comment</p>
+				<p>Please sign in to like a comment</p>
 				<br />
-				<Link to={`/`}>Sing In</Link>
+				<Link to={`/`}>Sign In</Link>
 			</> : <>
 				<form onSubmit={handleSubmit}>
 					<textarea

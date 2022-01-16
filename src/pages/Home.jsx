@@ -58,7 +58,7 @@ const Home = ({ setUser }) => {
                 )}
                 <br />
                 <br />
-                <Link to={`/reviews`}>Continue without singing in</Link>
+                <Link to={`/reviews`}>Continue without signing in</Link>
                 <br />
             </>
             )}
