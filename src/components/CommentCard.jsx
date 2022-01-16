@@ -1,18 +1,18 @@
 import React from 'react';
 import * as dayjs from "dayjs";
 import VoteCommentButton from './VoteCommentButton';
+import { CardContainer } from '../styles/styles.components';
 
 const CommentCard = ({comment}) => {
     return (
-        <div>
+        <CardContainer>
             <p>User:{comment.author}</p>
-            <p>Posted: {dayjs(comment.created_at).format("MMM D, YYYY h:mm A")}</p>
             <p>Comment:{comment.body}</p>
-            <p>Votes:{comment.votes}</p>
+            <p>Posted: {dayjs(comment.created_at).format("MMM D, YYYY h:mm A")}</p>
             <VoteCommentButton 
             comment={comment}
 			incComments={comment.incComments} />
-        </div>
+        </CardContainer>
     );
 };
 

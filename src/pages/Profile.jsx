@@ -5,30 +5,24 @@ import { getUserByUsername } from '../utils/api';
 
 const Profile = () => {
   const { username } = useParams();
-    const [user, setUser] = useState("");
+  const [user, setUser] = useState("");
 
-    useEffect(() => {
-        //set error
-        //getUserByUsername({username})
-        // .then((newUser) => {
-        //     console.log(newUser.username);
-        //     setUser(newUser.username);
-        // })
-        getUserByUsername(username)
-          .then((newUser) => {
-            console.log(newUser.username);
-            setUser(newUser);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }, [setUser, username]);
+  useEffect(() => {
+    getUserByUsername(username)
+      .then((newUser) => {
+        console.log(newUser.username);
+        setUser(newUser);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setUser, username]);
 
-    return (
-        <div>
-            <ProfileCard key={user.username} user={user} />
-        </div>
-    );
+  return (
+    <div>
+      <ProfileCard key={user.username} user={user} />
+    </div>
+  );
 };
 
 export default Profile;

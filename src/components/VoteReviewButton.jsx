@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/user";
+import { CustomGreenButton, CustomRedButton } from "../styles/styles.components";
 import { deleteReview, voteReview } from "../utils/api";
 
 const VoteReviewButton = ({ review }) => {
@@ -39,12 +40,12 @@ const VoteReviewButton = ({ review }) => {
 		<div>
 			<p>Likes: {reviewVotes}</p>
 			{allowDelete ? (
-				<button onClick={() => {handleDelete(review.review_id)}}
-				>Delete Review</button>
+				<CustomRedButton onClick={() => {handleDelete(review.review_id)}}
+				>Delete Review</CustomRedButton>
 			) : (
-				<button	onClick={handleVote} 
+				<CustomGreenButton	onClick={handleVote} 
                 disabled={isLoading || hasVoted}
-                >Like</button>
+                >Like This Review</CustomGreenButton>
 
 			)}
 		</div>

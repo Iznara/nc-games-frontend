@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavBarStyles } from '../styles/styles.components';
+import { CustomNavButton, NavBarStyles } from '../styles/styles.components';
 
 const Nav = () => {
     return (
         <NavBarStyles>
-            <Link to="/">Home</Link>
-            <Link to="/reviews">All Reviews</Link>
-            <Link to="/categories">Category List</Link>
-            <Link to="/users">User List</Link>
+            <CustomNavButton><Link to="/">Home</Link></CustomNavButton>
+            <CustomNavButton><Link to="/reviews">All Reviews</Link></CustomNavButton>
+            <CustomNavButton><Link to="/categories">Category List</Link></CustomNavButton>
+            <CustomNavButton><Link to="/users">User List</Link></CustomNavButton>
         </NavBarStyles>
     );
 };

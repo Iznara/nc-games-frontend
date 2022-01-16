@@ -1,4 +1,5 @@
 import React from "react";
+import { CustomBlueButton, CustomSelect } from "../styles/styles.components";
 
 const Sortbar = ({ order, setOrder, sort_by, setSort_by }) => {
     
@@ -15,8 +16,8 @@ const Sortbar = ({ order, setOrder, sort_by, setSort_by }) => {
 
     return (
         <div>
-            <label id="sorting_lable" >Sort By</label>
-            <select
+            <label id="sorting_lable" >Sort By: </label>
+            <CustomSelect
                 labelid="sorting_lable"
                 id="sorting_select"
                 value={sort_by}
@@ -25,9 +26,9 @@ const Sortbar = ({ order, setOrder, sort_by, setSort_by }) => {
                 <option value="created_at">Date Posted</option>
                 <option value="votes">Popularity</option>
                 <option value="comment_count">Comments</option>
-            </select>
+            </CustomSelect>
 
-            <button onClick={handleOrder}>{order === "ASC" ? " Ascending" : " Descending"}</button>
+            <CustomBlueButton onClick={handleOrder}>{order === "ASC" ? " Ascending" : " Descending"}</CustomBlueButton>
         </div>
     );
 };

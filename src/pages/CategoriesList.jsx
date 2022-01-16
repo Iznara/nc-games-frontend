@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CardContainer, CustomGreenButton } from '../styles/styles.components';
 import { getCategories } from '../utils/api';
 
 const CategoriesList = () => {
@@ -18,22 +19,22 @@ const CategoriesList = () => {
   return (
     <nav>
 
-      <div>
-        <h3><Link
+      <CardContainer>
+      <CustomGreenButton><Link
           to={`/reviews`}
-        >All Categories</Link></h3>
+        >All Categories</Link></CustomGreenButton>
+        
         <p>A list of all categories</p>
+      </CardContainer>
 
-        {categories.map((category) => (
-          <div key={category.slug}>
-            <h3><Link
-              to={`/categories/${category.slug}`}
-            > {category.slug.charAt(0).toUpperCase() + category.slug.slice(1)} </Link></h3>
-
-            <p>{category.description}</p>
-          </div>
-        ))}
-      </div>
+      {categories.map((category) => (
+        <CardContainer key={category.slug}>
+                <CustomGreenButton><Link
+            to={`/categories/${category.slug}`}
+          > {category.slug.charAt(0).toUpperCase() + category.slug.slice(1)} </Link></CustomGreenButton>
+          <p>{category.description}</p>
+        </CardContainer>
+      ))}
     </nav>
   );
 };

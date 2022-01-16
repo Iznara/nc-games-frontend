@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../contexts/user";
+import { CustomGreenButton, CustomRedButton } from "../styles/styles.components";
 import { deleteComment, voteComment } from "../utils/api";
 
 const VoteCommentButton = ({ comment }) => {
@@ -37,12 +38,12 @@ const VoteCommentButton = ({ comment }) => {
 		<div>
 			<p>Likes: {commentVotes}</p>
 			{allowDelete ? (
-				<button onClick={() => {handleDelete(comment.comment_id)}}
-				>Delete Comment</button>
+				<CustomRedButton onClick={() => {handleDelete(comment.comment_id)}}
+				>Delete Comment</CustomRedButton>
 			) : (
-				<button	onClick={handleVote} 
+				<CustomGreenButton	onClick={handleVote} 
                 disabled={isLoading || hasVoted}
-                >Like</button>
+                >Like</CustomGreenButton>
 
 			)}
 		</div>

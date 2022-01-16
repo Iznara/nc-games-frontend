@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
 import Sortbar from '../components/SortBar';
+import { CustomBlueButton } from '../styles/styles.components';
 import { getReviews } from '../utils/api';
 
 const REVIEW_LIMIT = 10;
@@ -33,32 +34,33 @@ const ReviewsList = () => {
 
     return (
         <div>
+            <h1> {category_name ? `${category_name.charAt(0).toUpperCase() + category_name.slice(1)} Reviews` : "All Reviews"}</h1>
+
             <Sortbar
                 order={order_by}
                 setOrder={setOrder_by}
                 sort_by={sort_by}
                 setSort_by={setSort_by} />
-            <h1> {category_name ? `${category_name.charAt(0).toUpperCase() + category_name.slice(1)} Reviews` : "All Reviews"}</h1>
-
-            <button
+            <br />
+            <CustomBlueButton
                 disabled={page === 1}
                 onClick={() => {
                     setPage((currPage) => currPage - 1)
-                }}  >PREV</button>
-
-
-            <button
+                }}  >PREV</CustomBlueButton>
+            <CustomBlueButton
                 disabled={REVIEW_LIMIT * page >= totalCount}
                 onClick={() => {
                     setPage((currPage) => currPage + 1)
-                }}  >NEXT</button>
+                }}  >NEXT</CustomBlueButton>
+            <p>Page {page} of {Math.ceil(totalCount / REVIEW_LIMIT)}</p>
+            <br />
 
 
-            <ul>
+            <>
                 {reviews.map((review) => (
                     <ReviewCard key={review.review_id} review={review} />
                 ))}
-            </ul>
+            </>
         </div>
     );
 };

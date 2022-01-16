@@ -1,15 +1,16 @@
 import React from 'react';
+import { CardContainer, ImageContainer } from "../styles/styles.components"
 
 const ProfileCard = ({ user: { username, avatar_url, name },
 }) => {
-    
+
     return (
-        <div>
+        <CardContainer>
             <h2>User Profile</h2>
             <p>{username}</p>
-            <img src={avatar_url} alt={`${username}'s Profile`} />
+            <ImageContainer src={avatar_url} alt={`${username}'s Profile Picture`} />
             <h1>{name}</h1>
-        </div>
+        </CardContainer>
     );
 };
 export default ProfileCard;

@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/user';
+import { CardContainer, CustomBlueButton, CustomGreenButton, CustomRedButton, ImageContainer } from '../styles/styles.components';
 import { getUserByUsername } from '../utils/api';
 
 const Home = ({ setUser }) => {
@@ -41,14 +43,23 @@ const Home = ({ setUser }) => {
     };
 
     return (
-        <div>
+        <CardContainer>
+            <br />
             <h2>Welcome back! {user.username}</h2>
             {user ? (<>
-                <button onClick={handleLogIn}>Log Out</button>
+                <ImageContainer src={user.avatar_url} alt={`${user.username}'s Profile Picture`} />
+                <br />
+                <br />
+                <CustomRedButton onClick={handleLogIn}>Log Out</CustomRedButton>
             </>) : (<>
-                {isLoggedIn ? (<></>) : (
-                    <button onClick={handleLogIn}> Sign In </button>
+                {isLoggedIn ? (<>
+                </>) : (
+                    <CustomGreenButton onClick={handleLogIn}> Sign In </CustomGreenButton>
                 )}
+                <br />
+                <br />
+                <Link to={`/reviews`}>Continue without singing in</Link>
+                <br />
             </>
             )}
 
@@ -56,16 +67,21 @@ const Home = ({ setUser }) => {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label>
+                            <br />
                             {loginFailed ? "Try Again " : ""}
+                            <br />
+                            <br />
                             <input type="text" placeholder="username e.g. 'jessjelly'"
                                 onChange={handleChange} value={newUser}></input>
                         </label>
-                        <button onClick={handleSubmit}> Submit </button>
+                        <br />
+                        <br />
+                        <CustomBlueButton onClick={handleSubmit}> Submit </CustomBlueButton>
                     </form>
                 </div>
             ) : null}
 
-        </div>
+        </CardContainer>
     );
 };
 

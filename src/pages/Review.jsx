@@ -16,7 +16,7 @@ const Review = () => {
             })
             .catch((err) => {
                 console.log(err);
-              })
+            })
     }, [review_id]);
 
 
@@ -24,7 +24,7 @@ const Review = () => {
 
     return (
         <div>
-            <ReviewCard  key={review.review_id} review={review} />
+            <ReviewCard key={review.review_id} review={review} />
             <CommentList review_id={review_id} />
         </div>
     );
