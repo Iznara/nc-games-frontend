@@ -3,7 +3,7 @@ import logoLight from "../GitHub-Mark-Light-32px.png"
 import logoDark from "../GitHub-Mark-32px.png"
 import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/user';
-import { CardContainer, CustomBlueButton, CustomGreenButton, CustomRedButton, ImageContainer } from '../styles/styles.components';
+import { CardContainer, CustomBlueButton, CustomGreenButton, CustomRedButton } from '../styles/styles.components';
 import { getUserByUsername } from '../utils/api';
 
 const Home = ({ setUser }) => {
