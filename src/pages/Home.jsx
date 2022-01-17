@@ -53,7 +53,9 @@ const Home = ({ setUser }) => {
                     {/* <ImageContainer src={user.avatar_url} alt={`${user.username}'s Profile Picture`} /> */}
                     <br />
                     <br />
-                    <CustomRedButton onClick={handleLogIn}>Log Out</CustomRedButton>
+                    {user === "" ? <CustomRedButton onClick={handleLogIn}>Log Out</CustomRedButton>
+                    : <CustomBlueButton onClick={handleLogIn}> Sign In With A Different Account</CustomBlueButton> }
+                    
                 </>) : (<>
                     {isLoggedIn ? (<>
                         <div>
@@ -72,7 +74,7 @@ const Home = ({ setUser }) => {
                             </form>
                         </div>
                     </>) : (
-                        <CustomGreenButton onClick={handleLogIn}> Sign In </CustomGreenButton>
+                        <CustomBlueButton onClick={handleLogIn}> Sign In With An Existing Account</CustomBlueButton>
                     )}
                     <br />
                     <br />

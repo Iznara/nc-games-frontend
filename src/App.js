@@ -12,7 +12,7 @@ import ReviewsList from './pages/ReviewsList';
 import UserList from './pages/UserList';
 
 function App() {
-  const [user, setUser] = useState({ username: "jessjelly" });
+  const [user, setUser] = useState({ username: "" });
   return (
     <div className="App">
       <UserContext.Provider value={{ user }}>
