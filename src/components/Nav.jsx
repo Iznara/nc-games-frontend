@@ -7,8 +7,8 @@ const Nav = () => {
         <NavBarStyles>
             <CustomNavButton><Link to="/">Home</Link></CustomNavButton>
             <CustomNavButton><Link to="/reviews">All Reviews</Link></CustomNavButton>
-            <CustomNavButton><Link to="/categories">Category List</Link></CustomNavButton>
-            <CustomNavButton><Link to="/users">User List</Link></CustomNavButton>
+            <CustomNavButton><Link to="/categories">Categories</Link></CustomNavButton>
+            <CustomNavButton><Link to="/users">Users</Link></CustomNavButton>
         </NavBarStyles>
     );
 };
