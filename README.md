@@ -54,6 +54,7 @@ The port will listen on port 9090 if the connection is successful.
 
 # Routes
 
+```
 - /                              Home / Login
 - /reviews                       All Reviews
 - /reviews/:review_id            Individual review with associated comments
@@ -61,6 +62,7 @@ The port will listen on port 9090 if the connection is successful.
 - /categories/:category_name     All reviews of the specified category
 - /users                         All users
 - /users/:username               Individual user profile
+```
 
 ***
 <br>
