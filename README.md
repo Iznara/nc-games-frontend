@@ -1,7 +1,7 @@
 # **Iznara Game Reviews Frontend**
 
 ## **About**
-This React app was built as part of the Northcoders programming bootcamp.
+This React app was built in 1 week as part of the Northcoders programming bootcamp.
 It is a social board games rating and discussion website.
 
 A live version of my app is hosted at:
@@ -54,13 +54,13 @@ The port will listen on port 9090 if the connection is successful.
 
 # Routes
 
-/                              Home / Login
-/reviews                       All Reviews
-/reviews/:review_id            Individual review with associated comments
-/categories                    All categories
-/categories/:category_name     All reviews of the specified category
-/users                         All users
-/users/:username               Individual user profile
+- /                              Home / Login
+- /reviews                       All Reviews
+- /reviews/:review_id            Individual review with associated comments
+- /categories                    All categories
+- /categories/:category_name     All reviews of the specified category
+- /users                         All users
+- /users/:username               Individual user profile
 
 ***
 <br>
