@@ -44,11 +44,6 @@ _To view your currently installed version of node use the following command:_
 
         $ npm start
 
-## **Running The Server Locally** 
-The port will listen on port 9090 if the connection is successful.
-
-    $ npm start
-
 ***
 <br>
 
