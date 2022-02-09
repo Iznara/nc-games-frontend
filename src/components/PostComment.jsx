@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react/cjs/react.development";
 import { UserContext } from "../contexts/user";
 import { CustomBlueButton } from "../styles/styles.components";
 import { postComment } from "../utils/api";
